@@ -1,7 +1,11 @@
+Git 秒会https://blog.csdn.net/weixin_45541665/article/details/112245700
+
+
+
 远程仓库的访问
 
 HTTPS:零配置;但是每次访问仓库时，需要重复输入Github的账号和密码才能访问成功
- 
+
 SSH key:需要进行额外的配置;但是配置成功后，每次访问仓库时，不需重复输入Github的账号和密码
         id_rsa(私钥文件，存放于客户端的电脑中即可)
         id_rsa.pub(公钥文件，需要配置到Github中)
@@ -17,10 +21,11 @@ Git工作区中文件的4种状态
     
     已修改、没放入暂存区的文件前面有——红色的M
     已修改、  放入暂存区的文件前面有——绿色的M
+
  
- 
+
 先加入暂存区的文件有——绿色的A
- 
+
 当前所处分支——*
 
 
@@ -37,20 +42,20 @@ Git工作区中文件的4种状态
 
 生成与配置
 第一步：桌面空白处，鼠标右键，点击Git Bash Here终端
- 
- 
+
+
 第二步
     输入：ssh-keygen -t rsa -b 4096 -C "自己邮箱"
     后连续敲击3次回车：可在C:\Users\用户名文件夹\.ssh目录中，生成id_rsa和id_rsa.pub两个文件（可能名字不一样）
- 
- 
+
+
 第三步：配置SSH key
     1.使用记事本打开id_rsa.pub文件，复制里面的文本内容
     2.在浏览器中登录Github，点击头像->Settings -> SSH and GPG Keys -> New SSH key
     3.将id_rsa.pub文件中的内容，粘贴到Key对应的文本框中
     4.在Title文本框中任意填写一个名称，来标识这个Key从何而来
- 
- 
+
+
 第四步：检测SSH key是否配置成功
     1.点击Git Bash Here终端，输入：ssh -T git@github.com   // 验证是否已正确设置 ssh key 以向 github 进行身份验证
     2.输入yes,之后就可以看到自己的用户名
@@ -75,7 +80,7 @@ Git工作区中文件的4种状态
         2.将本地仓库中的内容推送到远程的origin仓库中
             git push -u origin 名字
             git push（后续更新的进行推送同步）
- 
+
 第二步：管理项目
     1.本地文件目录下，鼠标右键，点击Git Bash Here终端
     2.输入命令
@@ -84,21 +89,21 @@ Git工作区中文件的4种状态
         加入暂存区（时间看项目大小）：git add .
         检查状态：git status -s    
         指定提交消息（可能需要等一下）：git commit -m "first commit"
- 
- 
+
+
 第三步：进入GitHub创建空白远程仓库
- 
- 
+
+
 第四步：选择HTTPS
- 
- 
+
+
 第五步：将本地仓库和远程仓库进行关联,并把远程仓库命名为origin
             git remote add origin 网址
- 
+
 第六步：修改分支的名字  git branch -m master 名字
             git branch -m master main
- 
- 
+
+
 第六步：将本地仓库中的内容推送到远程的origin仓库中  git push -u origin 名字
                 git push -u origin main
                 git push（后续更新的进行推送同步）
@@ -107,17 +112,17 @@ Git工作区中文件的4种状态
 常用一套
 
 查看原项目代码状态：git status
- 
+
 修改的代码添加到暂存区：git add .
- 
+
 提交代码到本地仓库：git commit -m "完成了"
- 
+
 查看分支：git branch
- 
+
 切换分支：git checkout 需要切换的分支名
- 
+
 合并分支：git merge 需要合并的分支名
- 
+
 分支从本地推送到云端
     第一次：git push -u origin 需要推送的分支名
     以  后：git push
